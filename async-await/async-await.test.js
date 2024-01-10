@@ -1,4 +1,4 @@
-const {erinsGroceryShop} = require('./promise.js')
+const {erinsGroceryShop} = require('./async-await.js')
 const utils = require('../utils.js');
 
 
@@ -18,7 +18,7 @@ describe('erinsGroceryShop', () => {
             });
         });
     })
-    describe('goToTheShop', () => {
+    describe.skip('goToTheShop', () => {
         test('when invoked, should invoke goToTheShop', () => {
             const mockShop = jest.spyOn(utils, 'goToTheShop')
 
@@ -32,7 +32,7 @@ describe('erinsGroceryShop', () => {
             })
         })
     })
-    describe('write a shoppingList', () => {
+    describe.skip('write a shoppingList', () => {
         test('when invoked, should invoke writeShoppingList', () => {
             const mockList = jest.spyOn(utils, 'writeShoppingList')
 

@@ -1,4 +1,4 @@
-const utils = require("./utils")
+const utils = require("../utils")
 
 function erinsGroceryShop() {
     const completedTasks = []
@@ -10,7 +10,3 @@ function erinsGroceryShop() {
 }
 
 module.exports = {erinsGroceryShop}
-
-//she needs to write a shopping list
-//erin needs to cash a cheque
-//she needs to go to the shop
