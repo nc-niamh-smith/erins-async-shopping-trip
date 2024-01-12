@@ -2,17 +2,17 @@ const fs = require('fs/promises');
 
 const utils = {
 
-    cashCheque: async () => {
+    cashCheque: () => {
         return fs.readFile('./data/cheque.txt').then((content) => {
             return content.toString()
         })
     },
-    goToTheShop: async () => {
+    goToTheShop: () => {
         return fs.readFile('./data/shop.txt').then((content) => {
             return content.toString()
         })
     },
-    writeShoppingList: async () => {
+    writeShoppingList: () => {
         return fs.readFile('./data/list.txt').then((content) => {
             return content.toString()
         })
