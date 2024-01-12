@@ -1,13 +1,21 @@
+const fs = require('fs/promises');
+
 const utils = {
 
     cashCheque: async () => {
-        return 'cheque has been cashed'
+        return fs.readFile('./data/cheque.txt').then((content) => {
+            return content.toString()
+        })
     },
     goToTheShop: async () => {
-        return 'shop complete'
+        return fs.readFile('./data/shop.txt').then((content) => {
+            return content.toString()
+        })
     },
     writeShoppingList: async () => {
-        return 'shopping list written'
+        return fs.readFile('./data/list.txt').then((content) => {
+            return content.toString()
+        })
     }
 }
 
