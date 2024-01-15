@@ -21,4 +21,4 @@ const utils = {
 
 
 
-module.exports = utils
+module.exports = utils;

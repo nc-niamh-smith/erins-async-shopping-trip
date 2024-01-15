@@ -1,9 +1,12 @@
 const {erinsGroceryShop} = require('./async-await.js')
 const utils = require('../utils.js');
 
+afterEach(() => {
+    jest.clearAllMocks()
+})
 
 describe('erinsGroceryShop', () => {
-    describe('cashCheque', () => {
+    describe.only('cashCheque', () => {
         test('when invoked, should invoke cashCheque', () => {
             const mockCheque = jest.spyOn(utils, 'cashCheque')
     
@@ -18,7 +21,7 @@ describe('erinsGroceryShop', () => {
             });
         });
     })
-    describe.skip('goToTheShop', () => {
+    describe('goToTheShop', () => {
         test('when invoked, should invoke goToTheShop', () => {
             const mockShop = jest.spyOn(utils, 'goToTheShop')
 
@@ -32,7 +35,7 @@ describe('erinsGroceryShop', () => {
             })
         })
     })
-    describe.skip('write a shoppingList', () => {
+    describe('write a shoppingList', () => {
         test('when invoked, should invoke writeShoppingList', () => {
             const mockList = jest.spyOn(utils, 'writeShoppingList')
 
@@ -46,4 +49,15 @@ describe('erinsGroceryShop', () => {
             });
         });
     });
+
+    test('when invoked, the sequence of tasks should happen in order of necessity - write the list, cash the cheque, then go to the shop', () => {
+        const mockCheque = jest.spyOn(utils, 'cashCheque')
+        const mockList = jest.spyOn(utils, 'writeShoppingList')
+        const mockShop = jest.spyOn(utils, 'goToTheShop')
+        return erinsGroceryShop().then(() => {
+            expect(mockList).toHaveBeenCalledBefore(mockCheque)
+            expect(mockList).toHaveBeenCalledBefore(mockShop)
+            expect(mockCheque).toHaveBeenCalledBefore(mockShop)
+        })
+    })
 });

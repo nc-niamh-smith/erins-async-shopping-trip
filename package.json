@@ -11,5 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^29.7.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["./testSetup.js"]
+  },
+  "devDependencies": {
+    "jest-extended": "^4.0.2"
   }
 }
